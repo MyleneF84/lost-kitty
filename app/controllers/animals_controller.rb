@@ -12,6 +12,7 @@ class AnimalsController < ApplicationController
   end
 
   def create
+    # @user = User.find(params[:id])
     @animal = Animal.new(animal_params)
     if @animal.save
       redirect_to animal_path(@animal)
@@ -23,6 +24,6 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :address, :species)
+    params.require(:animal).permit(:name, :address, :species, :user_id)
   end
 end

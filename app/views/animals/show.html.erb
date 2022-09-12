@@ -2,3 +2,6 @@
 
 <p><%= @animal.address %></p>
 <p><%= @animal.species %></p>
+<p>Found by: <%= @animal.user&.username %> | Tel : <%= @animal.user&.telephone %></p>
+
+<%= link_to "Return to all", animals_path  %>
