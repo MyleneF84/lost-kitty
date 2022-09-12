@@ -12,13 +12,31 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    # @user = User.find(params[:id])
     @animal = Animal.new(animal_params)
     if @animal.save
       redirect_to animal_path(@animal)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @animal = Animal.find(params[:id])
+  end
+
+  def update
+    @animal = Animal.find(params[:id])
+    if @animal.update(animal_params)
+      redirect_to animal_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @animal = Animal.find(params[:id])
+    @animal.destroy
+    redirect_to animals_path, status: :see_other
   end
 
   private

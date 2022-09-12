@@ -1,0 +1,11 @@
+<h1>Edit animal</h1>
+
+<%= simple_form_for(@animal) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :species, collection: Animal::SPECIES %>
+  <%= f.input :user_id %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Return to all", animals_path  %>
